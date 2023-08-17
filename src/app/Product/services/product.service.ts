@@ -8,7 +8,7 @@ import { catchError, tap } from "rxjs/operators";
     providedIn: 'root'
 })
 export class ProductService{
-    private productUrl = 'api/products/';
+    private productUrl = "https://nu5m6h3hji.us-east-1.awsapprunner.com/products"///'api/products/';
 
     constructor(private http: HttpClient){ }
 

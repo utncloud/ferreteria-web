@@ -13,7 +13,8 @@ import { IAuthResponse } from "../models/login.interface";
     providedIn: 'root',
   })
   export class LoginService {
-    url= '/api/users';
+    //url= '/api/users';
+    url='https://s4stf8dnfm.us-east-1.awsapprunner.com/users'
     subscriptionUser: Subscription = null;
     userAuthenticate:IAuth;
 
