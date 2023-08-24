@@ -1,6 +1,6 @@
 {
     "/api/products": {
-      "target": "http://localhost:3007",
+      "target": "https://ceapuskw2b.us-east-1.awsapprunner.com",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
@@ -9,8 +9,8 @@
       }
     },
     "/api/users/*": {
-        "target": "https://github.com/utncloud/ferreteria-user-api/master",
-        "secure": false,
+        "target": "https://kdhexm3qap.us-east-1.awsapprunner.com",
+        "secure": true,
         "logLevel": "debug",
         "changeOrigin": true,
         "pathRewrite": {

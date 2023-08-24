@@ -3,16 +3,19 @@ import { IProduct } from "../Iproduct";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ProductService{
-    private productUrl = "https://nu5m6h3hji.us-east-1.awsapprunner.com/products"///'api/products/';
+    private productUrl = (environment.URL_PRODUCTS !== "") ? environment.URL_PRODUCTS : 'api/products/';
 
     constructor(private http: HttpClient){ }
 
     getProducts(): Observable<IProduct[]>{        
+        console.log(this.productUrl);
+        
         return this.http.get<IProduct[]>(this.productUrl).pipe(
             tap(data=> console.log('All: ' + JSON.stringify(data))), 
             catchError(this.handleError)

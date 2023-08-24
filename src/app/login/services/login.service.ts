@@ -8,15 +8,15 @@ import * as fromApp  from './../../store/app.reducer';
 import * as LoginActios from '../store/login.action';
 import { error_message_handler } from 'src/app/shared/helper/error-message.handler';
 import { IAuthResponse } from "../models/login.interface";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root',
   })
-  export class LoginService {
-    //url= '/api/users';
-    url='https://s4stf8dnfm.us-east-1.awsapprunner.com/users'
+  export class LoginService {    
     subscriptionUser: Subscription = null;
     userAuthenticate:IAuth;
+    url=(environment.URL_USERS !== "") ? environment.URL_USERS : '/api/users';
 
     constructor( 
         private store: Store<fromApp.AppState>,
@@ -24,6 +24,9 @@ import { IAuthResponse } from "../models/login.interface";
     ){this.getAuthentication()}
 
     authenticate(userNm: string, password: string){
+        console.log(this.url);
+        console.log(environment.URL_USERS);
+
         let result= new IAuthResponse();
         return this.http.get<IAuth[]>(this.url).pipe(
             map((response) => {
