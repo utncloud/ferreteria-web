@@ -9,5 +9,5 @@ export class Product implements IProduct{
     description: string="";
     starRating: number=0;
     imageUrl: string="";
-    constructo(){}
+    construct(){}
 }
